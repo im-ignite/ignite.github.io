@@ -46,7 +46,7 @@
     <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Eignite</h1>
+            <h1 class="text-2xl font-bold">Ignite</h1>
             <div class="space-x-4">
                 <a href="#home" class="text-white hover:text-blue-300">Home</a>
                 <a href="#social" class="text-white hover:text-blue-300">Social</a>
@@ -57,4 +57,92 @@
 
     <!-- Hero Section -->
     <section id="home" class="section flex flex-col items-center text-center">
-        <h1 class="text-5
+        <h1 class="text-5xl font-bold mb-4 animate-hero">Welcome, I'm Ignite</h1>
+        <p class="text-xl mb-6">A passionate creator building awesome projects</p>
+        <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">View My Work</a>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" class="section flex flex-col items-center text-center bg-blue-900 bg-opacity-50">
+        <h2 class="text-4xl font-bold mb-8">Connect with Me</h2>
+        <div class="social-icons flex space-x-6">
+            <a href="https://github.com" target="_blank" class="text-3xl"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="text-3xl"><i class="fab fa-linkedin"></i></a>
+            <a href="https://youtube.com" target="_blank" class="text-3xl"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitch.tv" target="_blank" class="text-3xl"><i class="fab fa-twitch"></i></a>
+        </div>
+        <p class="mt-6 text-lg">Follow me on my social platforms for updates!</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section flex flex-col items-center text-center">
+        <h2 class="text-4xl font-bold mb-8">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl">
+            <!-- Project Card 1 -->
+            <div class="project-card bg-blue-800 rounded-lg p-6">
+                <h3 class="text-2xl font-semibold mb-4">Project One</h3>
+                <p class="mb-4">A cool web app built with React and Tailwind CSS.</p>
+                <a href="#" class="text-blue-300 hover:underline">View Project</a>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="project-card bg-blue-800 rounded-lg p-6">
+                <h3 class="text-2xl font-semibold mb-4">Project Two</h3>
+                <p class="mb-4">A game developed using Unity and C#.</p>
+                <a href="#" class="text-blue-300 hover:underline">View Project</a>
+            </div>
+            <!-- Project Card 3 -->
+            <div class="project-card bg-blue-800 rounded-lg p-6">
+                <h3 class="text-2xl font-semibold mb-4">Project Three</h3>
+                <p class="mb-4">A machine learning model for image recognition.</p>
+                <a href="#" class="text-blue-300 hover:underline">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Awesome for Social Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- GSAP Animations -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Hero section animation
+        gsap.from('.animate-hero', {
+            opacity: 0,
+            y: 50,
+            duration: 1.5,
+            ease: 'power3.out'
+        });
+
+        // Social icons animation
+        gsap.from('.social-icons a', {
+            opacity: 0,
+            scale: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: 'elastic.out(1, 0.3)',
+            scrollTrigger: {
+                trigger: '#social',
+                start: 'top 80%'
+            }
+        });
+
+        // Project cards animation
+        gsap.from('.project-card', {
+            opacity: 0,
+            y: 50,
+            stagger: 0.3,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '#projects',
+                start: 'top 80%'
+            }
+        });
+    </script>
+</body>
+</html>
